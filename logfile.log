@@ -1,0 +1,22 @@
+[2024-05-21 16:00:31] [ ERROR] [PacienteServiceTest:32] Parametro de conexión No soportado " INIT"
+Unsupported connection setting " INIT" [90113-224]
+[2024-05-21 16:00:42] [ ERROR] [PacienteServiceTest:32] Parametro de conexión No soportado " INIT"
+Unsupported connection setting " INIT" [90113-224]
+[2024-05-21 16:01:02] [ ERROR] [PacienteServiceTest:32] Error de Sintaxis en sentencia SQL "DROP [*]IF EXISTS DOMICILIOS"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP [*]IF EXISTS DOMICILIOS"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP IF EXISTS DOMICILIOS [42001-224]
+[2024-05-21 16:02:41] [ ERROR] [PacienteServiceTest:32] Conversión de datos fallida, convirtiendo "'NUM 10' (DOMICILIOS: ""NUMERO"" INTEGER NOT NULL)"
+Data conversion error converting "'NUM 10' (DOMICILIOS: ""NUMERO"" INTEGER NOT NULL)"; SQL statement:
+
+
+INSERT INTO DOMICILIOS VALUES(1, 'CALLE 54', 'NUM 10', 'LOCALIDAD 1', 'PROVINCIA 1') [22018-224]
+[2024-05-21 16:03:42] [ ERROR] [DomicilioDAOH2:66] Error al insertar Domicilio: Violación de indice de Unicidad ó Clave primaria: "PRIMARY KEY ON PUBLIC.DOMICILIOS(ID) ( /* key:0 */ 1, 'CALLE 54', 10, 'LOCALIDAD 1', 'PROVINCIA 1')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.DOMICILIOS(ID) ( /* key:0 */ 1, 'CALLE 54', 10, 'LOCALIDAD 1', 'PROVINCIA 1')"; SQL statement:
+INSERT INTO DOMICILIOS VALUES(DEFAULT, ?, ?, ?, ?) [23505-224]
+[2024-05-21 16:03:42] [ ERROR] [PacienteDAOH2:77] Error al insertar Paciente: Cannot invoke "backend.dh.model.Domicilio.getId()" because "domicilio" is null
+[2024-05-21 16:08:38] [ ERROR] [PacienteServiceTest:32] La columna "ID_DOMICILIO" no permite valores nulos (NULL)
+NULL not allowed for column "ID_DOMICILIO"; SQL statement:
+
+INSERT INTO PACIENTES VALUES(DEFAULT, 'MONTES', 'ANDRES', '1234', '2024-10-25', DEFAULT) [23502-224]
+[2024-05-21 16:09:53] [ INFO ] [DomicilioDAOH2:56] Se ha insertado el domicilio: Domicilio{id=2, calle='calle prueba', numero=45, localidad='localidad prueba', provincia='provincia prueba'}
+[2024-05-21 16:09:53] [ INFO ] [PacienteDAOH2:67] Se ha insertado el paciente: Paciente{id=2, apellido='Quiroz', nombre='Manuel', dni='87564', fechaIngreso=2024-01-25, domicilio=Domicilio{id=2, calle='calle prueba', numero=45, localidad='localidad prueba', provincia='provincia prueba'}}
